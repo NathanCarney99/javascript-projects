@@ -1,16 +1,17 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: bold;
-  background-color: rgb(238, 237, 237);
+  background-color: white;
   margin: 0;
 }
 
 #nav {
   background-color: rgb(238, 237, 237);
   display: flex;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   align-items: center;
   justify-content: center;
+  z-index: 1100;
 }
 
 #navcenter {
@@ -44,6 +45,7 @@ li {
 
 #color-types li:hover {
   color: rgb(84, 166, 249);
+  cursor: pointer;
 }
 
 #main-container {
@@ -53,12 +55,13 @@ li {
   height: 100%;
   background-color: green;
   display: flex;
+  flex-direction: column;
 }
 
 #color-title-container {
   background-color: black;
   color: white;
-  padding: 1px;
+  padding: 10px;
   border-radius: 20px;
   font-size: 25px;
 }
@@ -70,7 +73,8 @@ li {
 #center-container {
   width: fit-content;
   margin: 10% auto auto auto;
-  display: flexbox;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -83,6 +87,8 @@ button {
   letter-spacing: 3px;
   cursor: pointer;
   transition: 0.3s;
+  margin: 30px auto;
+  font-size: 25px;
 }
 button:hover {
   color: white;

@@ -7,30 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <navbar id="nav">
+    
+    <div id="main-container">
+<navbar id="nav">
         <div id="navcenter">
             <ul id="title">
             <li>Color Flipper</li>
         </ul>
         <ul id="color-types">
-            <li>Simple</li>
-            <li>Hex</li>
+            <li onclick="changeSimple()">Simple</li>
+            <li onclick="changeHex()">Hex</li>
         </ul>
         </div>
         
 
 
     </navbar>
-    <div id="main-container">
+
+
         <div id="center-container">
             <div id="color-title-container">
                 <h1>Background Color : <span id="color-name">Green</span></h1>
             </div>
-            <button>CLICK ME</button>
+            <button id="color-button" onclick="changeColor()">CLICK ME</button>
         </div>
         
 
     </div>
-    
+    <script src="logic.js"></script>
 </body>
 </html>
