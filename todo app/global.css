@@ -4,7 +4,9 @@ html {
 
 body {
     margin: 0;
-    display: flexbox;
+    display: flex;
+    background-color: #fdfcf3;
+   
     
 }
 
@@ -14,7 +16,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+    position: fixed;
+    width: 100%;
+    
+    /* display: none; */
 }
 
 .header-text {
@@ -28,5 +34,93 @@ body {
 .btm-container {
     background-color: #fdfcf3;
     height: 100vh;
+    /* margin-top: 70px;
+    padding-top: 20px; */
+    width: 100%;
+    
+}
+
+.note-background {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    opacity: 50%;
+    background-color: rgb(114, 114, 114);
+    /* display: none; */
+
+}
+
+textarea {
+    height: 200px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 15px;
+    
+}
+
+.note {
+    background-color:#ffebcd;
+    padding: 10px;
+    border-radius: 30px;
+    width: 40%;
+    margin: 25vh auto 30vh auto;
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    position: relative;
+    align-items: center;
+    
+  
+}
+
+.btn {
+    display: flex;
+}
+
+#new-btn {
+    padding: 10px 4px;
+    background-color: white;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgb(150, 150, 150);
+    border-radius: 30px;
+    color: rgb(112, 112, 112);
+    cursor: pointer;
+    transition: .3s;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    margin-top: 100px;
+}
+
+#new-btn:hover {
+    box-shadow: none;
+    background-color: #ffebcd;
+}
+
+.note-background button {
+   margin-top: 4vh;
+    background-color: #ff8b3e;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    transition: .3s;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 50%;
+    margin: 10px auto 0vh auto;
+    box-shadow: 0 2px 4px 0 rgb(36, 36, 36);
+}
+
+
+
+.note-background button:hover {
+    background-color: rgb(255, 60, 0);
+    color: black;
+    box-shadow: none;
+    color: white;
 
 }
