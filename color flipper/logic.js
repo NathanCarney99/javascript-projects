@@ -2,11 +2,11 @@ const background = document.getElementById("main-container");
 const colorName = document.getElementById("color-name");
 const arrayColors = ["green", "red", "blue", "gold"];
 const arrayHex = ["#00FF00", "#FF0000", "#0000FF", "#FFD700"];
-let simple = true;
-let arrayIdx = -1;
+const simple = true;
+const arrayIdx = -1;
 
 function changeColor() {
-  let color = Math.floor(Math.random() * arrayColors.length);
+  const color = Math.floor(Math.random() * arrayColors.length);
   arrayIdx = color;
   background.style.backgroundColor = arrayColors[color];
   changeColorName(arrayColors[color]);
