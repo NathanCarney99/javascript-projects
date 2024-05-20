@@ -7,6 +7,17 @@ let noteText = document.getElementById("note-text");
 const noteItems = document.getElementById("note-items");
 const body = document.getElementById("body");
 const newBtnText = document.getElementById("new-btn-hover");
+const deleteButtons = document.getElementsByClassName("delete-btn");
+
+
+console.log(deleteButtons);
+
+noteItems.addEventListener('click', function(event) {
+  if(event.target && event.target.classList.contains('delete-btn')) {
+    const task = event.target.parentElement.parentElement;
+    task.remove();
+  }
+})
 
 
 
@@ -46,11 +57,12 @@ submitButton.onclick = function () {
     newNote.classList.add("item");
     newNote.id = "item";
     newNote.innerHTML = 
-        `<p>${text}</p><div class="buttons-item"><button>Edit</button><button>Done</button>`;
+        `<p>${text}</p><div class="buttons-item"><button>Edit</button><button class="delete-btn">Done</button>`;
     noteItems.appendChild(newNote);
 
     
     noteText.value = "";
+    console.log(deleteButtons);
 }
 
 console.log(noteText.value + "here");
