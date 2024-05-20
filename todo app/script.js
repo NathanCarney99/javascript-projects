@@ -7,20 +7,44 @@ let noteText = document.getElementById("note-text");
 const noteItems = document.getElementById("note-items");
 const body = document.getElementById("body");
 const newBtnText = document.getElementById("new-btn-hover");
-const deleteButtons = document.getElementsByClassName("delete-btn");
 
+noteItems.addEventListener("click", function (event) {
+  if (event.target && event.target.classList.contains("edit-btn")) {
+    let textArea = event.target.parentElement.parentElement.textContent;
+    let str = textArea.substring(0, textArea.length - 8);
+    console.log(str);
 
-console.log(deleteButtons);
+    newButton.onclick();
+    noteText.value = str;
 
-noteItems.addEventListener('click', function(event) {
-  if(event.target && event.target.classList.contains('delete-btn')) {
+    // submit clicked only on editing
+    submitButton.onclick = function () {
+      let child = event.target.parentElement.parentElement;
+      child.remove();
+      let text = noteText.value;
+
+      if (text == "") {
+        cancelButton.onclick();
+        return;
+      }
+      // close the editing container
+      cancelButton.onclick();
+      let newNote = document.createElement("div");
+      newNote.classList.add("item");
+      newNote.id = "item";
+      newNote.innerHTML = `<p id="submitted-note-text">${text}</p><div class="buttons-item"><button  class="edit-btn">Edit</button><button class="delete-btn">Done</button>`;
+      noteItems.appendChild(newNote);
+      noteText.value = "";
+    };
+  }
+});
+
+noteItems.addEventListener("click", function (event) {
+  if (event.target && event.target.classList.contains("delete-btn")) {
     const task = event.target.parentElement.parentElement;
     task.remove();
   }
-})
-
-
-
+});
 
 newButton.onclick = function () {
   noteBackground.classList.remove("hide");
@@ -34,35 +58,20 @@ cancelButton.onclick = function () {
   newButton.classList.remove("hide");
   noteText.value = "";
   body.classList.remove("no-scroll");
-  
 };
 
-console.log(noteText.value + "here");
-
-
 submitButton.onclick = function () {
-    let text = noteText.value;
+  let text = noteText.value;
 
-    if(text == '')
-    {cancelButton.onclick(); return;
-
-    }
-    
-
+  if (text == "") {
     cancelButton.onclick();
-
-    
-
-    let newNote = document.createElement('div');
-    newNote.classList.add("item");
-    newNote.id = "item";
-    newNote.innerHTML = 
-        `<p>${text}</p><div class="buttons-item"><button>Edit</button><button class="delete-btn">Done</button>`;
-    noteItems.appendChild(newNote);
-
-    
-    noteText.value = "";
-    console.log(deleteButtons);
-}
-
-console.log(noteText.value + "here");
+    return;
+  }
+  cancelButton.onclick();
+  let newNote = document.createElement("div");
+  newNote.classList.add("item");
+  newNote.id = "item";
+  newNote.innerHTML = `<p id="submitted-note-text">${text}</p><div class="buttons-item"><button  class="edit-btn">Edit</button><button class="delete-btn">Done</button>`;
+  noteItems.appendChild(newNote);
+  noteText.value = "";
+};
